@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<title>Amit IT - Blog App</title>
+<!-- MDB icon -->
+<link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+<!-- Google Fonts Roboto -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+<!-- MDB -->
+<style>
+.gradient-custom-2 {
+	/* fallback for old browsers */
+	background: #fccb90;
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media ( min-width : 768px) {
+	.gradient-form {
+		height: 100vh !important;
+	}
+}
+
+@media ( min-width : 769px) {
+	.gradient-custom-2 {
+		border-top-right-radius: .3rem;
+		border-bottom-right-radius: .3rem;
+	}
+}
+.nav-link{
+	color: #ffff!important;
+}
+.search_btn:focus,.search_bar:focus{
+    box-shadow: none !important;
+}
+.login:hover{
+    border: none !important;
+    outline: none !important;
+    color: #fff !important;
+    background-color: green;
+}
+.login{
+    background-color: green !important;
+    border: none !important;
+    outline: none !important;
+    padding: 10px;
+    padding-inline: 25px;
+    border-radius: 5px;
+    text-decoration: none !important;
+    color: #fff;
+    margin-right: 10px;
+
+}
+
+  .search-bar input[type="text"]{
+        padding: 16px 14px;
+        outline: none;
+        }
+       .search-bar{
+            display: flex;
+        }
+        .blog_posts_lists{
+            padding-top: 30px;
+        }
+     .search-bar .search-input {
+        border: 1px solid #ccc;
+        border-radius: 4px 0 0 4px;
+        }
+    .search-bar .search-button {
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        padding: 16px 14px;
+        outline: none;
+        border: none;
+        font-size: 16px;
+        }
+      .search-bar .search-button:hover {
+        background-color: #0056b3;
+        }
+
+
+
+
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<div class="container-fluid">
+	   <div class="row">
+		 <div class="col-md-12"> 
+			 <nav class="navbar navbar-expand-lg bg-dark" style="color: #ffff;">
+				 
+				    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="color: #ffff;">
+				      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				       <li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/">Amit IT Blog App</a></li>
+							
+							<li class="nav-item"><a class="nav-link" href="#">Services</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="#">Contact Us
+									</a>
+							</li>
+				      </ul>
+				       <a href="/Login" class="login">Login</a>
+				    </div>
+				  
+				</nav>
+		 </div>
+	  </div>
+
+         
+		 
+	  
+	   <div class="row">
+		 <div class="col-md-1"></div> 
+		
+		
+		 <div class="col-md-7">
+				   
+              <div class="card border-secondary  mt-4 mb-5 pb-2 " style="max-width: 48rem;">
+               <div class="card-header ">
+		      <font size="+2"><a href="https://www.java.com/en/download/help/whatis_java.html">What is Java</a></font><br>
+    
+              <p class="card-text"> <h6 th:text="${execInfo.now.time}"></h></p>
+              </div>
+           <div class="card-body text-secondary">
+           <p class="card-text">Java is a programming language and computing platform first released by Sun Microsystems in 1995.</p>
+           <a href="Viewblog" class="stretched-link">Read more</a>
+          </div> 
+     
+          </div>
+         
+           
+            
+		        <div class="card border-secondary  mt-4 mb-5 pb-2 " style="max-width: 48rem;">
+		            <div class="card-header ">
+				 <font size="+2"><a href="https://www.javatpoint.com/spring-boot-tutorial">What is Sprinboot</a></font><br>
+		    
+			    <p class="card-text"> <h6 th:text="${execInfo.now.time}"></h></p>
+			    </div>
+			     <div class="card-body text-secondary">
+			     <p class="card-text">Spring Boot Tutorial provides basic and advanced concepts of Spring Framework.</p>
+			         <a href="Viewblog" class="stretched-link">Read more</a>
+			     </div>
+		      </div>
+		      
+		      
+		       <div class="card border-secondary  mt-4 mb-5 pb-2 " style="max-width: 48rem;">
+		            <div class="card-header ">
+				 <font size="+2"><a href="https://www.simplilearn.com/tutorials/angular-tutorial/what-is-angular">What is Angular</a></font><br>
+		    
+			    <p class="card-text"> <h6 th:text="${execInfo.now.time}"></h></p>
+			    </div>
+			     <div class="card-body text-secondary">
+			     <p class="card-text">Angular is an open-source, JavaScript framework written in TypeScript. Google maintains it, and its primary purpose is to develop single-page applications.</p>
+			       <a href="Viewblog" class="stretched-link">Read more</a>
+			     </div>
+		      </div>
+		      
+		      
+		      
+		      
+		    
+		 </div>
+		 <div class="col-md-3 mt-2">
+			<div class="card border-secondary  mt-3 mb-3" >
+		            <div class="card-header p-0">
+				 <p><h4 class="text-center" style="margin:-1%;">Blog Search</h4></p>
+			    </div>
+			     <div class="card-body text-secondary">
+			     <div class="search-bar">
+                    <input type="text" class="search-input">
+                    <button class="search-button">Search</button>
+                </div>
+				 </div>
+		 </div>
+		<div class="col-md-1"></div>
+		  
+	  </div>
+   </div>
+		 <div class="row">
+		 <div class="col-12">
+			 <footer class="navbar navbar-dark bg-dark">
+				  <div class="container-fluid" style="color: #fff;">
+				    <p><h5 class="text-center">Copyright@2023 <a href = "AmitIt"></a>All right reserved.</h5></p>
+				  </div>
+				</footer>
+		 </div> 	
+		 </div>			
+	</div>    
+     
+     
+       
+
+	<!-- End your project here-->
+
+	<!-- MDB -->
+	<script type="text/javascript" src="js/mdb.min.js"></script>
+	<!-- Custom scripts -->
+	<script type="text/javascript"></script>
+</body>
+
+</html>

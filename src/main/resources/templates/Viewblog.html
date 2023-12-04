@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<title>Amit IT - Blog App</title>
+<!-- MDB icon -->
+<link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+<!-- Google Fonts Roboto -->
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+<!-- MDB -->
+<style>
+.gradient-custom-2 {
+	/* fallback for old browsers */
+	background: #fccb90;
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media ( min-width : 768px) {
+	.gradient-form {
+		height: 100vh !important;
+	}
+}
+
+@media ( min-width : 769px) {
+	.gradient-custom-2 {
+		border-top-right-radius: .3rem;
+		border-bottom-right-radius: .3rem;
+	}
+}
+.nav-link{
+	color: #ffff!important;
+}
+
+body{
+  background-color: #dfecf7;
+}
+
+.container{
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.comment-box {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.comment-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+  background-color: #fff;
+}
+
+.btn-submit {
+  background-color: #005aaa;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #003366;
+}
+
+.gradient-bg {
+  background: linear-gradient(to bottom, #003366, #005aaa);
+}
+
+.gradient-bg .btn-submit {
+  background-color: #fff;
+  color: #005aaa;
+  border: 2px solid #fff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.gradient-bg .btn-submit:hover {
+  background-color: #005aaa;
+  color: #fff;
+}
+
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="container-fluid">
+	   <div class="row">
+		 <div class="col-md-12"> 
+			 <nav class="navbar navbar-expand-lg bg-dark" style="color: #ffff;">
+				 
+				    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="color: #ffff;">
+				      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				       <li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/">Amit IT Blog App</a></li>
+							<li class="nav-item"><a class="nav-link" href="Dashboard">All posts</a>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="Viewcomment">View Comment</a>
+							</li>
+							
+							
+				      </ul>
+				    </div>
+				  
+				</nav>
+		 </div>
+	  </div>
+	  
+	   <div class="row">
+		 <div class="col-md-1"></div> 
+		 <div class="col-md-7">
+				 <p style="font-size:36px;">What s Java</p>
+				 <hr>	   
+                 <p class="card-text">Java is a programming language and computing platform first released by Sun Microsystems in 1995.</p>
+                 <hr>
+		        
+		         
+		          
+		          <div class="card-header "> 
+		         <div id="respond">
+                  <h3>Leave a Comment</h3>
+                  
+                
+			<p th:text="${succMsg}" class="text-success"/>
+			<p th:text="${errMsg}" class="text-danger"/>
+			
+            <form th:action="@{/Viewblog}"  th:object="${formObj}" method="POST">
+				    <div class="form-group">
+				      <label for="name">Name:</label>
+				      <input type="text" id="name" name="nameCnt" placeholder="Enter your name"  field="*{nameCnt}" >
+				    </div>
+				    <div class="form-group">
+				      <label for="email">Email:</label>
+				      <input type="email" id="email" name="emailCnt" placeholder="Enter your email"  field="*{emailCnt}" >
+				    </div>
+				    <div class="form-group">
+				      <label for="comment">Comment:</label>
+				      <textarea id="comment" name="commentCnt" placeholder="Type your comment here"  field="*{commentCnt}"></textarea>
+				    </div>
+				    <button type="submit" class="btn-submit">Submit</button>
+				  </form>
+				</div>
+					</div>
+				 
+		         
+		    
+		 </div>
+		 <div class="col-md-3 mt-2">
+			<div class="card border-secondary  mt-3 mb-3" >
+		            <div class="card-header p-0">
+				 <p><h4 class="text-center" style="margin:-1%;">Blog Search</h4></p>
+			    </div>
+			     <div class="card-body text-secondary">
+			     <div class="input-group">
+					  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+					  <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init>search</button>
+					</div>
+				 </div>
+		 </div>
+		<div class="col-md-1"></div>
+		  
+	  </div>
+   </div>
+		 <div class="row">
+		 <div class="col-12">
+			 <footer class="navbar navbar-dark bg-dark">
+				  <div class="container-fluid" style="color: #fff;">
+				    <p><h5 class="text-center">Copyright@2023 <a href = "AmitIt"></a>All right reserved.</h5></p>
+				  </div>
+				</footer>
+		 </div> 	
+		 </div>			
+	</div>    
+     
+     
+       
+
+	<!-- End your project here-->
+
+	<!-- MDB -->
+	<script type="text/javascript" src="js/mdb.min.js"></script>
+	<!-- Custom scripts -->
+	<script type="text/javascript"></script>
+</body>
+
+</html>
